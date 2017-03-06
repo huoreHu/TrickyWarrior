@@ -1,4 +1,4 @@
-package com.github.huorehu.tricky_warrior;
+package com.github.huorehu.tricky_warrior.model;
 
 public enum WarriorCondition {
 
