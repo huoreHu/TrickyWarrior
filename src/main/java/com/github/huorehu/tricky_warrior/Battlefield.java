@@ -17,4 +17,8 @@ public class Battlefield {
 	this.sidesOfBattle.add(race);
     }
 
+    public List<Race> getSidesOfBattle() {
+	return sidesOfBattle;
+    }
+
 }

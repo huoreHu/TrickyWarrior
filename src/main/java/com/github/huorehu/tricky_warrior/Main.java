@@ -1,13 +1,16 @@
 package com.github.huorehu.tricky_warrior;
 
+import com.github.huorehu.tricky_warrior.model.PersonagesBank;
+
 public class Main {
 
     public static void main(String[] args) {
 
-	ArchersBuilder archersBuilder = new ArchersBuilder(new PersonageActions("attackArchery", 7).addAction("attackInMelee", 3));
-	Race race = new Race(archersBuilder.generateArchers(10));
-	Battlefield battlefield = new Battlefield(race);
-	battlefield.addSideOfBattle(race);
+	RaceBuilder racebuilder = new RaceBuilder();
+	Race oneSide = racebuilder.buildRace(PersonagesBank.ELF);
+	Race twoSide = racebuilder.buildRace(PersonagesBank.ORC);
+	String name = oneSide.getListPersonage().get(0).getName();
+	System.out.println(name);
 
     }
 

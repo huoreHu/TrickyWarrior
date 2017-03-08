@@ -1,6 +1,6 @@
 package com.github.huorehu.tricky_warrior.model;
 
-import com.github.huorehu.tricky_warrior.ListPersonageActions;
+import com.github.huorehu.tricky_warrior.PersonagePowerWeapon;
 
 public class Personage {
 
@@ -8,16 +8,20 @@ public class Personage {
 
     private final String name;
 
-    private ListPersonageActions personageActions;
+    private PersonagePowerWeapon powerWeapon;
 
     private WarriorCondition warriorCondition = WarriorCondition.NORMAL;
 
-    public Personage(final String name, final ListPersonageActions personageActions) {
+    public Personage(final String name, PersonagePowerWeapon powerWeapon) {
 	this.name = name;
-	this.personageActions = personageActions;
+	this.powerWeapon = powerWeapon;
     }
 
-    public void changeHealth(final int attackPower) {
+    public void actionTo(Personage personage, AttackOptions action) {
+	personage.changeHealth(powerWeapon.getPowerAction(action));
+    }
+
+    private void changeHealth(final int attackPower) {
 	this.health -= attackPower * warriorCondition.getCurrentCondition();
 	this.warriorCondition = WarriorCondition.NORMAL;
     }
@@ -30,12 +34,12 @@ public class Personage {
 	return name;
     }
 
-    public void setWarriorCondition(WarriorCondition warriorCondition) {
-	this.warriorCondition = warriorCondition;
+    public WarriorCondition getWarriorCondition() {
+	return warriorCondition;
     }
 
-    public ListPersonageActions getListPersonageActions() {
-	return personageActions;
+    public void setWarriorCondition(WarriorCondition warriorCondition) {
+	this.warriorCondition = warriorCondition;
     }
 
 }

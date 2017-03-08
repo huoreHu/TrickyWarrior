@@ -3,18 +3,16 @@ package com.github.huorehu.tricky_warrior.model;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.github.huorehu.tricky_warrior.IPersonagesBank;
-
 public enum PersonagesBank implements IPersonagesBank {
 
-    ELF(), 
-    HUMAN(),
-    ORC(),
-    COSSET();
+    ELF(new HashMap<>()), 
+    HUMAN(new HashMap<>()),
+    ORC(new HashMap<>()),
+    COSSET(new HashMap<>());
 
     private Map<String, Personage> personagesList;
 
-    PersonagesBank() {
+    PersonagesBank(Map<String, Personage> personagesList) {
 	this.personagesList = new HashMap<>();
     }
 
